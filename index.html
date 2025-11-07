@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Información</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla de Login -->
+        <div id="login-screen" class="screen active">
+            <div class="form-container">
+                <h1>Gestor de Información</h1>
+                <h2>Iniciar Sesión</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Correo Electrónico</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <p class="switch-text">¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Pantalla de Registro -->
+        <div id="register-screen" class="screen">
+            <div class="form-container">
+                <h1>Gestor de Información</h1>
+                <h2>Crear Cuenta</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Nombre Completo</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Correo Electrónico</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Contraseña</label>
+                        <input type="password" id="register-password" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirmar Contraseña</label>
+                        <input type="password" id="register-confirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                    <p class="switch-text">¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión aquí</a></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Pantalla Principal (Dashboard) -->
+        <div id="dashboard-screen" class="screen">
+            <div class="dashboard-container">
+                <header class="dashboard-header">
+                    <h1>Gestor de Información</h1>
+                    <div class="user-info">
+                        <span id="user-name-display"></span>
+                        <button id="logout-btn" class="btn btn-secondary">Cerrar Sesión</button>
+                    </div>
+                </header>
+
+                <div class="dashboard-content">
+                    <div class="actions-bar">
+                        <button id="add-profile-btn" class="btn btn-primary">+ Agregar Perfil</button>
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="Buscar por nombre o identificación...">
+                        </div>
+                    </div>
+
+                    <div id="profiles-container" class="profiles-grid">
+                        <!-- Los perfiles se cargarán dinámicamente aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Agregar/Editar Perfil -->
+        <div id="profile-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Agregar Perfil</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <form id="profile-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profile-name">Nombre *</label>
+                            <input type="text" id="profile-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-lastname">Apellido *</label>
+                            <input type="text" id="profile-lastname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profile-id">Número de Identificación *</label>
+                            <input type="text" id="profile-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-birth">Fecha de Nacimiento *</label>
+                            <input type="date" id="profile-birth" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profile-phone">Número de Celular *</label>
+                            <input type="tel" id="profile-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-card">Tarjeta de Crédito</label>
+                            <input type="text" id="profile-card" placeholder="XXXX-XXXX-XXXX-XXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile-email">Correo Electrónico</label>
+                        <input type="email" id="profile-email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile-address">Dirección</label>
+                        <textarea id="profile-address" rows="3"></textarea>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary cancel-btn">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
